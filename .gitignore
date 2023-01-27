@@ -34,3 +34,4 @@ msbuild.wrn
 *.exe
 *.o
 *.so
+src/ButterflyStore.Server/appsettings.Development.json
