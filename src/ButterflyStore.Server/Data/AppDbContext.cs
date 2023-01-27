@@ -1,6 +1,3 @@
-using ButterflyStore.Data.Models;
-using Microsoft.EntityFrameworkCore;
-
 namespace ButterflyStore.Server.Data;
 
 public class AppDbContext : DbContext

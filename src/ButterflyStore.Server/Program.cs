@@ -13,6 +13,9 @@ builder.Services.AddSwaggerGen();
 //Adding the configured APP DB CONTEXT 
 builder.Services.AddAppDbContext(builder.Configuration);
 
+//Registering Auto Mapper
+builder.Services.RegisterAutoMapper();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
