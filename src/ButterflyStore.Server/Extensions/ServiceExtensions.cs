@@ -15,8 +15,15 @@ public static class ServiceExtensions
         });
     }
 
+    //Add AutoMapper to the DI container.
     public static void RegisterAutoMapper(this IServiceCollection services)
     {
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+    }
+
+    //Add the IProductsService to the DI container.
+    public static void AddProductsService(this IServiceCollection services)
+    {
+        services.AddScoped<IProductsService, ProductsService>();
     }
 }
