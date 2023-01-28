@@ -35,25 +35,25 @@ public class CategoryService : ICategoryService
         }
     }
 
-    public async Task<IEnumerable<CategoryDto>> GetAllCategoriesAsync()
+    public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
     {
         //Get all the records from the categories table.
         var categories = await _context.Categories
                         .AsNoTracking()
                         .ToListAsync();
 
-        //Return a collection of Category DTOs.
-        return _mapper.Map<IEnumerable<CategoryDto>>(categories);
+        //Return a collection of Categories.
+        return categories;
     }
 
-    public async Task<CategoryDto> GetCategoryByIdAsync(int id)
+    public async Task<Category> GetCategoryByIdAsync(int id)
     {
         //Get the category by its ID without tracking its changes.
         var category = await _context.Categories
                              .AsNoTracking()
                              .FirstOrDefaultAsync(c => c.Id == id);
 
-        return _mapper.Map<CategoryDto>(category);
+        return category!;
     }
 
     public Task Update(int id)

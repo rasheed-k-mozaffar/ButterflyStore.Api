@@ -35,7 +35,7 @@ public class ProductsService : IProductsService
         }
     }
 
-    public async Task<IEnumerable<ProductDto>> GetAllProductsAsync()
+    public async Task<IEnumerable<Product>> GetAllProductsAsync()
     {
         //Get all the product records inside the products table and also include the category property
         //and ignore the changes cause we don't want to track anything since this will serve as a GET DATA Query.
@@ -43,11 +43,11 @@ public class ProductsService : IProductsService
                         .Include(p => p.Category)
                         .AsNoTracking()
                         .ToListAsync();
-        //Map all the products to PRODUCT DTOS and return them.
-        return _mapper.Map<IEnumerable<ProductDto>>(products);
+
+        return products;
     }
 
-    public async Task<ProductDto> GetProductByIdAsync(int id)
+    public async Task<Product> GetProductByIdAsync(int id)
     {
         //Get the product , then map it to a product DTO and return it.
         var product = await _context.Products
@@ -55,7 +55,7 @@ public class ProductsService : IProductsService
                 .AsNoTracking()
                 .FirstOrDefaultAsync(p => p.Id == id);
 
-        return _mapper.Map<ProductDto>(product);
+        return product!;
 
     }
 
