@@ -11,7 +11,6 @@ public class ProductDto
     public decimal Price { get; set; }
     public string Color { get; set; } = null!;
     public SizeEnum Size { get; set; }
-
-    public Category? Category { get; set; }
+    public string? CategoryName { get; set; }
     public int? CategoryId { get; set; }
 }

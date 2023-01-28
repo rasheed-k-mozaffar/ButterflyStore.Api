@@ -2,9 +2,9 @@ namespace ButterflyStore.Server.Services.Interfaces;
 
 public interface IProductsService
 {
-    Task<IEnumerable<ProductDto>> GetAll();
-    Task<ProductDto> GetProductById(int id);
-    Task Add(ProductDto model);
-    Task Delete(int id);
+    Task<IEnumerable<ProductDto>> GetAllProductsAsync();
+    Task<ProductDto> GetProductByIdAsync(int id);
+    Task AddProductAsync(ProductDto model);
+    Task DeleteProduct(int id);
     Task Update(int id);
 }
