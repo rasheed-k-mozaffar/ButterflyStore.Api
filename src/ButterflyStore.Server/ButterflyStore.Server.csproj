@@ -6,6 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
@@ -25,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ButterflyStore.Data\ButterflyStore.Data.csproj" />
+    <ProjectReference Include="..\ButterflyStore.Shared\ButterflyStore.Shared.csproj" />
   </ItemGroup>
 
 </Project>

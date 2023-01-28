@@ -16,6 +16,12 @@ builder.Services.AddAppDbContext(builder.Configuration);
 //Registering Auto Mapper
 builder.Services.RegisterAutoMapper();
 
+//Register the IProductService
+builder.Services.AddProductsService();
+
+//Register the ICategoryService
+builder.Services.AddCategoryService();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -11,13 +11,10 @@ public class CategoryService : ICategoryService
         _mapper = mapper;
     }
 
-    public async Task AddCategoryAsync(CategoryDto model)
+    public async Task AddCategoryAsync(Category model)
     {
-        //Create the category from the recieved DTO.
-        var categoryToAdd = _mapper.Map<Category>(model);
 
-        //Add the category and persist the changes.
-        await _context.Categories.AddAsync(categoryToAdd);
+        await _context.Categories.AddAsync(model);
         await _context.SaveChangesAsync();
     }
 

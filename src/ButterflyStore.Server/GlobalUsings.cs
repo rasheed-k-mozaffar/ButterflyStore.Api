@@ -1,4 +1,5 @@
-global using ButterflyStore.Data.Dtos;
+global using ButterflyStore.Shared;
+global using ButterflyStore.Shared.Enums; 
 global using ButterflyStore.Server.Data;
 global using ButterflyStore.Server.Services.Interfaces;
 global using ButterflyStore.Server.Services.Implementations;

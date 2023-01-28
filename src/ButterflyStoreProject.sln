@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButterflyStore.Server", "Bu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButterflyStore.Data", "ButterflyStore.Data\ButterflyStore.Data.csproj", "{7FF0AE39-F881-4DC1-B5D6-BC55707FAB6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButterflyStore.Shared", "ButterflyStore.Shared\ButterflyStore.Shared.csproj", "{03B7BEAC-BA46-462F-A466-BFF5A5AF47CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{7FF0AE39-F881-4DC1-B5D6-BC55707FAB6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FF0AE39-F881-4DC1-B5D6-BC55707FAB6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FF0AE39-F881-4DC1-B5D6-BC55707FAB6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03B7BEAC-BA46-462F-A466-BFF5A5AF47CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B7BEAC-BA46-462F-A466-BFF5A5AF47CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B7BEAC-BA46-462F-A466-BFF5A5AF47CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B7BEAC-BA46-462F-A466-BFF5A5AF47CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

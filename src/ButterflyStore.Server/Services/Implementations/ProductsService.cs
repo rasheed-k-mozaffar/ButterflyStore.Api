@@ -11,13 +11,10 @@ public class ProductsService : IProductsService
         _mapper = mapper;
     }
 
-    public async Task AddProductAsync(ProductDto model)
+    public async Task AddProductAsync(Product model)
     {
-        //Create a new product using the given model.
-        var itemToAdd = _mapper.Map<Product>(model);
-
         //Adding the product to the database and then persisting the changes.
-        await _context.Products.AddAsync(itemToAdd);
+        await _context.Products.AddAsync(model);
         await _context.SaveChangesAsync();
     }
 

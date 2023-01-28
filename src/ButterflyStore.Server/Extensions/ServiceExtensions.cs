@@ -26,4 +26,11 @@ public static class ServiceExtensions
     {
         services.AddScoped<IProductsService, ProductsService>();
     }
+
+    //Add the ICategoryService to the DI container.
+    public static void AddCategoryService(this IServiceCollection services)
+    {
+        services.AddScoped<ICategoryService, CategoryService>();
+    }
+
 }
