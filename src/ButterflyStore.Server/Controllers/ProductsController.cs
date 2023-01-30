@@ -19,26 +19,23 @@ public class ProductsController : BaseController
     public async Task<IActionResult> GetAll()
     {
         var products = await _productsService.GetAllProductsAsync();
-        var productsAsDtos = new List<ProductDto>();
 
-        foreach (Product product in products)
-        {
-            var productDto = ConstructProductDto(product);
-            productsAsDtos.Add(productDto);
-        }
-
-        return Ok(productsAsDtos); //Return 200 OK STATUS CODE with all the products.
+        return Ok(products.Select(c => ConstructProductDto(c))); //Return 200 OK STATUS CODE with all the products.
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {
+        if (id <= 0)
+        {
+            return BadRequest("0 is not a valid ID");
+        }
         var product = await _productsService.GetProductByIdAsync(id);
 
         //Check if a product exists with the given ID.
         if (product == null)
         {
-            return BadRequest($"No product was found with the ID: {id}");
+            return NotFound($"No product was found with the ID: {id}");
         }
 
         //Build a DTO from the retrieved product and send it.
@@ -93,11 +90,18 @@ public class ProductsController : BaseController
             return BadRequest("0 is not a valid ID");
         }
 
+        var product = await _productsService.GetProductByIdAsync(id);
+        if (product == null)
+        {
+            return NotFound($"No product was found with the ID: {id}");
+        }
+
         await _productsService.DeleteProduct(id);
 
         return NoContent(); //Return 204 NO CONTENT.
     }
 
+    // TODO : Needs Checking.
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateProduct(int id, ProductDto model)
     {
@@ -106,11 +110,18 @@ public class ProductsController : BaseController
             return BadRequest("0 is not a valid ID");
         }
 
+        var productToUpdate = await _productsService.GetProductByIdAsync(id);
+
+        if (productToUpdate == null)
+        {
+            return NotFound($"No product was found with the ID: {id}");
+        }
+
         if (ModelState.IsValid)
         {
-            var productToUpdate = await _productsService.GetProductByIdAsync(id);
             productToUpdate.Name = model.Name;
             productToUpdate.Color = model.Color;
+            productToUpdate.ImageUrl = model.ImageUrl;
             productToUpdate.Description = model.Description;
             productToUpdate.Price = model.Price;
             productToUpdate.Size = model.Size;
@@ -118,6 +129,8 @@ public class ProductsController : BaseController
             productToUpdate.Category!.Name = model.CategoryName!;
 
             await _context.SaveChangesAsync();
+
+            //var dto = ConstructProductDto(productToUpdate);
 
             return NoContent(); //Return 200 NO CONTENT STATUS CODE.
         }
@@ -150,6 +163,7 @@ public class ProductsController : BaseController
             Price = model.Price,
             Size = model.Size,
             CategoryId = model.CategoryId,
+            CategoryName = model.Category.Name
         };
     }
 

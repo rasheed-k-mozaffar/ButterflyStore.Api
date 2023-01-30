@@ -1,5 +1,9 @@
+using System.Text;
 using ButterflyStore.Server.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace ButterflyStore.Server.Extensions;
 
@@ -32,5 +36,20 @@ public static class ServiceExtensions
     {
         services.AddScoped<ICategoryService, CategoryService>();
     }
+
+    //Add and Configure Identity.
+    public static void AddAndConfigureIdentity(this IServiceCollection services)
+    {
+        services.AddIdentity<AppUser, IdentityRole>(o =>
+        {
+            //Configure the password
+            o.Password.RequireDigit = true;
+            o.Password.RequireUppercase = true;
+            o.Password.RequireNonAlphanumeric = false;
+            o.Password.RequiredLength = 8;
+        }).AddDefaultTokenProviders()
+          .AddEntityFrameworkStores<AppDbContext>();
+    }
+    
 
 }

@@ -22,6 +22,9 @@ builder.Services.AddProductsService();
 //Register the ICategoryService
 builder.Services.AddCategoryService();
 
+//Add Identity.
+builder.Services.AddAndConfigureIdentity();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
