@@ -25,6 +25,9 @@ builder.Services.AddCategoryService();
 //Add Identity.
 builder.Services.AddAndConfigureIdentity();
 
+//Add Authentication And JWT Bearer.
+builder.Services.AddAndConfigureAuthentication(builder.Configuration);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,6 +39,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

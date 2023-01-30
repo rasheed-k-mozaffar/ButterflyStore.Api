@@ -50,6 +50,29 @@ public static class ServiceExtensions
         }).AddDefaultTokenProviders()
           .AddEntityFrameworkStores<AppDbContext>();
     }
-    
+
+    //Add And Configure AUTHENTICATION SERVICE.
+    public static void AddAndConfigureAuthentication(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        }).AddJwtBearer(o =>
+        {
+            var secret = configuration["JwtSettings:Secret"];
+            o.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateIssuerSigningKey = true,
+                ValidateLifetime = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret!)),
+                RequireExpirationTime = true
+            };
+        });
+    }
+
 
 }
