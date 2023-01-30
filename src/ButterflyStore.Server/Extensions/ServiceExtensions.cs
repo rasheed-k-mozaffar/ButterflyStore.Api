@@ -41,6 +41,13 @@ public static class ServiceExtensions
         services.AddScoped<ICategoryService, CategoryService>();
     }
 
+    //Add the IAuthService to the DI container.
+    public static void AddAuthService(this IServiceCollection services)
+    {
+        services.AddScoped<IAuthService, AuthService>();
+    }
+
+
     /// <summary>
     /// This method adds Identity and Configures the password settings for the needs of this project.
     /// </summary>

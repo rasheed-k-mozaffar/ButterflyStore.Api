@@ -7,3 +7,4 @@ global using ButterflyStore.Data.Models;
 global using Microsoft.EntityFrameworkCore;
 global using AutoMapper;
 global using ButterflyStore.Server.Exceptions;
+global using ButterflyStore.Shared.ApiResponses;
