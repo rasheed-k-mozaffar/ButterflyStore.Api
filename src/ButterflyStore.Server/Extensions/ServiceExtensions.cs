@@ -9,8 +9,12 @@ namespace ButterflyStore.Server.Extensions;
 
 public static class ServiceExtensions
 {
-    //Configuring the application db context to use SQL Lite and setting up the connection string called
-    //Default Connection from the appsettings.development.json.
+    /// <summary>
+    /// This method registers the App Db Context to the DI container and reads the connection
+    /// string from appsettings.development.json to establish a connection with the database.
+    /// </summary>
+    /// <param name="services"></param>
+    /// <param name="configuration"></param>
     public static void AddAppDbContext(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<AppDbContext>(options =>
@@ -37,7 +41,10 @@ public static class ServiceExtensions
         services.AddScoped<ICategoryService, CategoryService>();
     }
 
-    //Add and Configure Identity.
+    /// <summary>
+    /// This method adds Identity and Configures the password settings for the needs of this project.
+    /// </summary>
+    /// <param name="services"></param>
     public static void AddAndConfigureIdentity(this IServiceCollection services)
     {
         services.AddIdentity<AppUser, IdentityRole>(o =>
@@ -51,7 +58,12 @@ public static class ServiceExtensions
           .AddEntityFrameworkStores<AppDbContext>();
     }
 
-    //Add And Configure AUTHENTICATION SERVICE.
+    
+    /// <summary>
+    /// This methods add authentication and configures the token settings.
+    /// </summary>
+    /// <param name="services"></param>
+    /// <param name="configuration">Used to read the secret key from settings store.</param>
     public static void AddAndConfigureAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddAuthentication(options =>
@@ -64,6 +76,7 @@ public static class ServiceExtensions
             var secret = configuration["JwtSettings:Secret"];
             o.TokenValidationParameters = new TokenValidationParameters
             {
+                //Configuring the JWT Token parameters and creating the Signing Key.
                 ValidateIssuer = true,
                 ValidateAudience = true,
                 ValidateIssuerSigningKey = true,
