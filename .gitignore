@@ -37,3 +37,5 @@ msbuild.wrn
 src/ButterflyStore.Server/appsettings.Development.json
 
 src/ButterflyStore.Server/app.config
+
+src/ButterflyStore.Server/TreblleLog.txt

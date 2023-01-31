@@ -2,10 +2,9 @@ using ButterflyStore.Server.Extensions;
 using ButterflyStore.Shared.Validators;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Treblle.Net.Core;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
 
 builder.Services.AddControllers();
 
@@ -37,9 +36,13 @@ builder.Services.AddValidatorsFromAssemblyContaining<RegisterDtoValidator>();
 //Add Authentication And JWT Bearer.
 builder.Services.AddAndConfigureAuthentication(builder.Configuration);
 
+//Add API Versioning.
+builder.Services.AddApiVersioningService();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -47,6 +50,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseTreblle();
 
 app.UseAuthentication();
 app.UseAuthorization();

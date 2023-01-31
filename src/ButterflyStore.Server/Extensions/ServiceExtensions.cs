@@ -94,5 +94,19 @@ public static class ServiceExtensions
         });
     }
 
+    public static void AddApiVersioningService(this IServiceCollection services)
+    {
+        services.AddApiVersioning(options =>
+        {
+            //This option provides the API versions we have to the client;
+            options.ReportApiVersions = true;
+
+            //This will provide a default API version in case we didn't specify one.
+            options.AssumeDefaultVersionWhenUnspecified = true;
+
+            options.DefaultApiVersion = Microsoft.AspNetCore.Mvc.ApiVersion.Default;
+        });
+    }
+
 
 }
