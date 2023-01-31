@@ -1,4 +1,7 @@
 using ButterflyStore.Server.Extensions;
+using ButterflyStore.Shared.Validators;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,8 +25,14 @@ builder.Services.AddProductsService();
 //Register the ICategoryService
 builder.Services.AddCategoryService();
 
+//Register the IAuthService
+builder.Services.AddAuthService();
+
 //Add Identity.
 builder.Services.AddAndConfigureIdentity();
+
+// TODO : Add Fluent Validations.
+builder.Services.AddValidatorsFromAssemblyContaining<RegisterDtoValidator>();
 
 //Add Authentication And JWT Bearer.
 builder.Services.AddAndConfigureAuthentication(builder.Configuration);
