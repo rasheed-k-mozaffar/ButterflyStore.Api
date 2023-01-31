@@ -3,9 +3,11 @@ using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Treblle.Net.Core;
 
 namespace ButterflyStore.Server.Controllers
 {
+	
 	public class AuthController : BaseController
 	{
 		private readonly IAuthService _authService;
@@ -19,7 +21,8 @@ namespace ButterflyStore.Server.Controllers
 			_loginValidator = loginValidator;
 		}
 
-		[HttpPost("register")]
+        [Treblle]
+        [HttpPost("register")]
 		public async Task<IActionResult> RegisterUser(RegisterUserDto model)
 		{
 			ValidationResult validationResult = await _registerValidator.ValidateAsync(model);
@@ -44,6 +47,7 @@ namespace ButterflyStore.Server.Controllers
 			}
 		}
 
+		[Treblle]
 		[HttpPost("login")]
 		public async Task<IActionResult> LoginUser(LoginUserDto model)
 		{

@@ -29,6 +29,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.2" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.4.0" />
+    <PackageReference Include="Treblle.Net.Core" Version="1.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,5 +45,7 @@
     <None Remove="FluentValidation" />
     <None Remove="FluentValidation.AspNetCore" />
     <None Remove="FluentValidation.DependencyInjectionExtensions" />
+    <None Remove="Treblle.Net.Core" />
+    <None Remove="Microsoft.AspNetCore.Mvc.Versioning" />
   </ItemGroup>
 </Project>

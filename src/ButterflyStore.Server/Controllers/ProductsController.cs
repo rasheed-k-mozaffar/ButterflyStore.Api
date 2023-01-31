@@ -1,7 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Treblle.Net.Core;
 
 namespace ButterflyStore.Server.Controllers;
 
+[Treblle]
+[Authorize]
 public class ProductsController : BaseController
 {
     private readonly IProductsService _productsService;
@@ -19,8 +23,9 @@ public class ProductsController : BaseController
     public async Task<IActionResult> GetAll()
     {
         var products = await _productsService.GetAllProductsAsync();
+        List<ProductDto> productDtos = products.Select(c => ConstructProductDto(c)).ToList();
 
-        return Ok(products.Select(c => ConstructProductDto(c))); //Return 200 OK STATUS CODE with all the products.
+        return Ok(productDtos); //Return 200 OK STATUS CODE with all the products.
     }
 
     [HttpGet("{id}")]
