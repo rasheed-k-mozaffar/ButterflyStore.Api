@@ -30,7 +30,7 @@ builder.Services.AddAuthService();
 //Add Identity.
 builder.Services.AddAndConfigureIdentity();
 
-// TODO : Add Fluent Validations.
+//Add Fluent Validations.
 builder.Services.AddValidatorsFromAssemblyContaining<RegisterDtoValidator>();
 
 //Add Authentication And JWT Bearer.
