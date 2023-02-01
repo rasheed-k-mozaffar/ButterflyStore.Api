@@ -7,7 +7,6 @@ using Treblle.Net.Core;
 
 namespace ButterflyStore.Server.Controllers
 {
-	
 	public class AuthController : BaseController
 	{
 		private readonly IAuthService _authService;
@@ -20,8 +19,7 @@ namespace ButterflyStore.Server.Controllers
 			_registerValidator = registerValidator;
 			_loginValidator = loginValidator;
 		}
-
-        [Treblle]
+ 
         [HttpPost("register")]
 		public async Task<IActionResult> RegisterUser(RegisterUserDto model)
 		{
@@ -47,7 +45,6 @@ namespace ButterflyStore.Server.Controllers
 			}
 		}
 
-		[Treblle]
 		[HttpPost("login")]
 		public async Task<IActionResult> LoginUser(LoginUserDto model)
 		{
