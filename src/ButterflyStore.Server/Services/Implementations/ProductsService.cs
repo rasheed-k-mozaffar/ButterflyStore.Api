@@ -3,12 +3,10 @@ namespace ButterflyStore.Server.Services.Implementations;
 public class ProductsService : IProductsService
 {
     private readonly AppDbContext _context;
-    private readonly IMapper _mapper;
 
-    public ProductsService(AppDbContext context, IMapper mapper)
+    public ProductsService(AppDbContext context)
     {
         _context = context;
-        _mapper = mapper;
     }
 
     public async Task AddProductAsync(Product model)
@@ -61,6 +59,7 @@ public class ProductsService : IProductsService
 
     public Task Update(int id)
     {
+        //We don't need the UPDATE method with EF CORE as our data access layer.
         throw new NotImplementedException();
     }
 }

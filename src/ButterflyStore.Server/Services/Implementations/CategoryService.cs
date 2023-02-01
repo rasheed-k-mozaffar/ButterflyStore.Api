@@ -3,12 +3,11 @@ namespace ButterflyStore.Server.Services.Implementations;
 public class CategoryService : ICategoryService
 {
     private readonly AppDbContext _context;
-    private readonly IMapper _mapper;
 
-    public CategoryService(AppDbContext context, IMapper mapper)
+    public CategoryService(AppDbContext context)
     {
         _context = context;
-        _mapper = mapper;
+        
     }
 
     public async Task AddCategoryAsync(Category model)
@@ -54,6 +53,18 @@ public class CategoryService : ICategoryService
                              .FirstOrDefaultAsync(c => c.Id == id);
 
         return category!;
+    }
+
+    public IEnumerable<Product> GetProductsByCategory(Category category)
+    {
+        //Get the products
+        var productsByCategory = from product in _context.Products.Include(p => p.Category)
+                                 where product.CategoryId == category.Id
+                                
+                                 orderby product.Name
+                                 select product;
+
+        return productsByCategory;
     }
 
     public Task Update(int id)

@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Treblle.Net.Core;
+using ButterflyStore.Server.Extensions;
 
 namespace ButterflyStore.Server.Controllers;
 
 [Treblle]
-[Authorize]
 public class ProductsController : BaseController
 {
     private readonly IProductsService _productsService;
@@ -23,7 +23,7 @@ public class ProductsController : BaseController
     public async Task<IActionResult> GetAll()
     {
         var products = await _productsService.GetAllProductsAsync();
-        List<ProductDto> productDtos = products.Select(c => ConstructProductDto(c)).ToList();
+        List<ProductDto> productDtos = products.Select(c => c.ConstructProductDto()).ToList();
 
         return Ok(productDtos); //Return 200 OK STATUS CODE with all the products.
     }
@@ -44,7 +44,7 @@ public class ProductsController : BaseController
         }
 
         //Build a DTO from the retrieved product and send it.
-        var productAsDto = ConstructProductDto(product);
+        var productAsDto = product.ConstructProductDto();
 
         return Ok(productAsDto);
 
@@ -59,7 +59,7 @@ public class ProductsController : BaseController
             //If the category name and the id are null , add it without creating a new category
             if (model.CategoryId == null)
             {
-                var product = ConstructProduct(model);
+                var product = model.ConstructProduct();
                 await _productsService.AddProductAsync(product);
                 return Ok();
             }
@@ -75,7 +75,7 @@ public class ProductsController : BaseController
                 else
                 {
                     //Build a product object and pass it to the PRODUCT SERVICE.
-                    var product = ConstructProduct(model);
+                    var product = model.ConstructProduct();
                     await _productsService.AddProductAsync(product);
                 }
                 return Ok();
@@ -141,35 +141,6 @@ public class ProductsController : BaseController
         }
 
         return BadRequest(ModelState); //Return 400 BAD REQUEST STATUS CODE.
-    }
-
-    private Product ConstructProduct(ProductDto model)
-    {
-        return new Product()
-        {
-            Name = model.Name,
-            Color = model.Color,
-            Description = model.Description,
-            ImageUrl = model.ImageUrl,
-            Price = model.Price,
-            Size = model.Size,
-            CategoryId = model.CategoryId,
-        };
-    }
-    private ProductDto ConstructProductDto(Product model)
-    {
-        return new ProductDto()
-        {
-            Id = model.Id,
-            Name = model.Name!,
-            Color = model.Color,
-            Description = model.Description,
-            ImageUrl = model.ImageUrl,
-            Price = model.Price,
-            Size = model.Size,
-            CategoryId = model.CategoryId,
-            CategoryName = model.Category.Name
-        };
     }
 
 }

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using ButterflyStore.Server.Extensions;
 
 namespace ButterflyStore.Server.Controllers;
 
@@ -18,7 +19,7 @@ public class CategoriesController : BaseController
     {
         var categories = await _categoryService.GetAllCategoriesAsync();
 
-        return Ok(categories.Select(c => ConstructCategoryDto(c))); //Return 200 OK STATUS CODE.
+        return Ok(categories.Select(c => c.ConstructCategoryDto())); //Return 200 OK STATUS CODE.
     }
 
     [HttpGet("{id}")]
@@ -37,17 +38,43 @@ public class CategoriesController : BaseController
         }
 
         //Build a category DTO from the retrieved category.
-        var categoryAsDto = ConstructCategoryDto(category);
+        var categoryAsDto = category.ConstructCategoryDto();
 
         return Ok(categoryAsDto); //Return 200 OK STATUS CODE.
     }
+
+    [HttpGet("productsbycategory/{id}")]
+    public async Task<IActionResult> GetProductsByCategoryId(int id)
+    {
+        if(id <= 0)
+        {
+            return BadRequest("0 is an invalid ID");
+        }
+
+        //Search for the category by its ID
+        var category = await _categoryService.GetCategoryByIdAsync(id);
+
+        //Return Not Found 
+        if(category == null)
+        {
+            return NotFound($"No category was found with the ID: {id}");
+        }
+        else
+        {
+            //Retreive the products and create a list of ProductDTOS from the retrieved data.
+            var products = _categoryService.GetProductsByCategory(category).ToList();
+
+            return Ok(products.Select(p => p.ConstructProductDto()));
+        }
+    }
+
 
     [HttpPost]
     public async Task<IActionResult> AddCategory(CategoryDto model)
     {
         if (ModelState.IsValid)
         {
-            var category = ConstructCategory(model);
+            var category = model.ConstructCategory();
             await _categoryService.AddCategoryAsync(category);
             return NoContent(); //Return 204 NO CONTENT STATUS CODE.
         }
@@ -101,22 +128,5 @@ public class CategoriesController : BaseController
         }
 
         return BadRequest();
-    }
-
-
-    private Category ConstructCategory(CategoryDto model)
-    {
-        return new Category()
-        {
-            Name = model.Name!
-        };
-    }
-    private CategoryDto ConstructCategoryDto(Category model)
-    {
-        return new CategoryDto()
-        {
-            Id = model.Id,
-            Name = model.Name
-        };
     }
 }
