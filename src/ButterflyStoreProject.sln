@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButterflyStore.Data", "Butt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButterflyStore.Shared", "ButterflyStore.Shared\ButterflyStore.Shared.csproj", "{03B7BEAC-BA46-462F-A466-BFF5A5AF47CB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButterflyStore.Client", "ButterflyStore.Client\ButterflyStore.Client.csproj", "{C63F1A21-2326-4073-AED6-CDC4532E0A23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{03B7BEAC-BA46-462F-A466-BFF5A5AF47CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03B7BEAC-BA46-462F-A466-BFF5A5AF47CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03B7BEAC-BA46-462F-A466-BFF5A5AF47CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C63F1A21-2326-4073-AED6-CDC4532E0A23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C63F1A21-2326-4073-AED6-CDC4532E0A23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C63F1A21-2326-4073-AED6-CDC4532E0A23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C63F1A21-2326-4073-AED6-CDC4532E0A23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
