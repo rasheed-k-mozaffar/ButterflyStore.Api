@@ -33,4 +33,8 @@
     <Folder Include="Shared\" />
     <Folder Include="AuthConfiguration\" />
   </ItemGroup>
+
+  <ItemGroup>
+      <ProjectReference Include="..\ButterflyStore.Shared\ButterflyStore.Shared.csproj" />
+  </ItemGroup>
 </Project>

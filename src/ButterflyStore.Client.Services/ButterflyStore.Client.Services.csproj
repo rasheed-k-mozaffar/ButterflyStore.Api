@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+      <ProjectReference Include="..\ButterflyStore.Client\ButterflyStore.Client.csproj" />
+      <ProjectReference Include="..\ButterflyStore.Shared\ButterflyStore.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Contracts\" />
+    <None Remove="Services\" />
+    <None Remove="Blazored.LocalStorage" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
+  </ItemGroup>
+</Project>
