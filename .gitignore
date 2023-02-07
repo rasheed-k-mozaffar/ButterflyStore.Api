@@ -45,3 +45,11 @@ src/ButterflyStore.Server/Program.cs
 src/ButterflyStore.Server/app.db
 
 src/Server/appsettings.Development.json
+
+src/Server/app.db
+
+src/Server/app.db-shm
+
+src/Server/app.db-wal
+
+src/Server/TreblleLog.txt

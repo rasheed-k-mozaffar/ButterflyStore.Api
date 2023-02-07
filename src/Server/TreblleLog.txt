@@ -76,3 +76,8 @@
 [ERROR] 2023-02-07 16:13:33 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
 [ERROR] 2023-02-07 16:21:13 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
 [ERROR] 2023-02-07 16:22:40 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 22:10:29 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 22:12:54 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 22:16:49 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 22:16:58 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 22:18:30 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
