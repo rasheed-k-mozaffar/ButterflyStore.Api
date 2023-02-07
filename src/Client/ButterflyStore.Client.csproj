@@ -20,6 +20,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.2" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.26.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+    <PackageReference Include="Blazored.FluentValidation" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,5 +35,11 @@
     <None Remove="Microsoft.AspNetCore.Components.Authorization" />
     <None Remove="System.IdentityModel.Tokens.Jwt" />
     <None Remove="Microsoft.Extensions.Http" />
+    <None Remove="FluentValidation" />
+    <None Remove="Blazored.FluentValidation" />
+    <None Remove="Exceptions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
   </ItemGroup>
 </Project>

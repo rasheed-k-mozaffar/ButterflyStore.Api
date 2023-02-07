@@ -28,8 +28,8 @@ namespace ButterflyStore.Shared.Validators
                 .MinimumLength(8).WithMessage("The password should be at least 8 characters");
 
 			RuleFor(p => p.PasswordConfirmation)
-				.Equal(p => p.Password)
-				.WithMessage("Password and Password Confirmation don't match");
+				.NotNull().WithMessage("The password confirmation field is required")
+				.Equal(p => p.Password).WithMessage("Password and Password Confirmation don't match");
         }
 	}
 }

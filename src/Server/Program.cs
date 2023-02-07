@@ -36,6 +36,9 @@ builder.Services.AddAndConfigureAuthentication(builder.Configuration);
 //Add API Versioning.
 builder.Services.AddApiVersioningService();
 
+
+builder.Services.AddCors();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -49,7 +52,12 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseTreblle();
-
+app.UseCors(options =>
+{
+    options.AllowAnyHeader();
+    options.AllowAnyMethod();
+    options.AllowAnyOrigin();
+});
 app.UseAuthentication();
 app.UseAuthorization();
 

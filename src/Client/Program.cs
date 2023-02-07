@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Components.Web;
+﻿global using ButterflyStore.Shared;
+global using ButterflyStore.Client.Services.Contracts;
+global using ButterflyStore.Client.Services.AppServices;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using ButterflyStore.Client;
 using Blazored.LocalStorage;
@@ -29,5 +32,9 @@ builder.Services.AddScoped<AuthenticationStateProvider, JwtAuthenticationStatePr
 
 //Register Blazored Local Storage so we can access the browser's local storage.
 builder.Services.AddBlazoredLocalStorage();
+
+//Register the Auth Service from the CLIENT SERVICES PROJECT to use for registeration and login
+builder.Services.AddTransient<IAuthService, AuthService>();
+
 
 await builder.Build().RunAsync();

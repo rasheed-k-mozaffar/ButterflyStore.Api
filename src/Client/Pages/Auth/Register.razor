@@ -1,13 +1,33 @@
-﻿
-<div  class="container mt-5">
+﻿@page "/auth/register"
+
+<!--This is the registeration form.-->
+<div class="container mt-5">
     <div class="card">
-        <div class="card-header p-3">
-            <h1 class="mb-3">Create a new account</h1>
+
+        <!--Form header text and validations area-->
+
+        <div class="card-body p-5">
+            <h1 class="text-center">Create a new account</h1>
+
+            <div class="text-light">
+                @if (string.IsNullOrWhiteSpace(_errorMessage))
+                {
+                    <div class="alert alert-danger" role="alert">
+                       <p>@_errorMessage</p>
+                    </div>
+                }
+            </div>
+
         </div>
 
-        @*<EditForm Model="@model" OnValidSubmit="@RegisterUser">
-            <div class="card-body">
-                <div class="form-group row">
+        <!--Form fields and labels-->
+        <EditForm Model="@model" OnValidSubmit="@RegisterUser">
+            <div class="p-5">
+                <FluentValidationValidator />
+                <ValidationSummary />
+            </div>
+            <div class="card-body p-5">
+                <div class="form-group mb-3 row">
                     <div class="col-6">
                         <label>First Name</label>
                         <input type="text" class="form-control" @bind-value="@model.FirstName" />
@@ -19,34 +39,36 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label>Email Address</label>
                     <input type="email" class="form-control" @bind-value="@model.Email" />
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label>Password</label>
                     <input type="password" class="form-control" @bind-value="@model.Password" />
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label>Password Confirmation</label>
                     <input type="password" class="form-control" @bind-value="@model.PasswordConfirmation" />
                 </div>
             </div>
 
-            <div class="card-footer p-3">
-                <div class="row" >
-                    <button class="btn btn-dark" type="submit">Create Account</button>
+
+            <!--Buttons and Navigations for login and registeration.-->
+            <div class="card-body p-5">
+                <div class="row mb-3">
+                    <button class="btn btn-dark" type="submit" disabled="@_isBusy">Create Account</button>
                 </div>
 
-                <div class="row">
-                    <button class="btn btn-dark-outline" @onclick='(() => NavigationManager.NavigateTo("/auth/login"))'>Login</button>
+                <div class="row mb-3">
+                    <button class="btn btn-outline-dark" @onclick='(() => NavigationManager.NavigateTo("/auth/login"))'>Login</button>
                 </div>
 
                 <p class="form-text">You can login straight away if you already have an account.</p>
             </div>
-        </EditForm>*@
+        </EditForm>
     </div>
 </div>
 

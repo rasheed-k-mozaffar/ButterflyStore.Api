@@ -5,7 +5,7 @@ using ButterflyStore.Client.Services.Contracts;
 using ButterflyStore.Shared;
 using ButterflyStore.Shared.ApiResponses;
 
-namespace ButterflyStore.Client.Services.Services
+namespace ButterflyStore.Client.Services.AppServices
 {
 	public class AuthService : IAuthService
 	{
