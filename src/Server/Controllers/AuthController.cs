@@ -34,7 +34,7 @@ namespace ButterflyStore.Server.Controllers
 					return Ok(result); //Return 200 OK STATUS CODE.
 				}
 
-				return BadRequest(result.Message);
+				return BadRequest(result);
 			}
 
 			else
@@ -59,7 +59,7 @@ namespace ButterflyStore.Server.Controllers
 					return Ok(result); //Return 200 OK STATUS CODE.
 				}
 
-				return BadRequest(result.Message); //Return 400 BAD REQUEST STATUS CODE WITH THE ERROR MESSAGE.
+				return BadRequest(result); //Return 400 BAD REQUEST STATUS CODE WITH THE ERROR MESSAGE.
 			}
 
 			validationResult.AddToModelState(ModelState);
