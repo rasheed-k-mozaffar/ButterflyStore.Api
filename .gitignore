@@ -43,3 +43,5 @@ src/ButterflyStore.Server/TreblleLog.txt
 src/ButterflyStore.Server/Program.cs
 
 src/ButterflyStore.Server/app.db
+
+src/Server/appsettings.Development.json

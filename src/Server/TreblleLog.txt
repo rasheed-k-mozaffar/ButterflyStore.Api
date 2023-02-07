@@ -1,0 +1,78 @@
+[ERROR] 2023-02-07 12:53:12 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 12:53:42 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 13:54:05 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 14:03:17 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 14:04:58 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:13:09 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:13:44 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:13:44 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:14:40 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:14:40 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:16:59 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:18:13 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:18:13 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:21:26 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:21:27 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:22:54 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:24:24 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:24:24 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:26:17 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:26:17 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:27:09 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:27:09 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:27:15 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:27:15 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:27:23 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:27:23 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:27:33 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:27:33 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:28:55 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:28:55 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:28:59 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:28:59 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:29:01 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:29:01 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:29:02 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:29:02 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:29:02 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:29:02 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:29:17 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:29:17 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:29:28 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:29:28 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:29:59 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:29:59 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:33:32 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:33:33 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:34:55 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:34:55 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:35:05 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:36:12 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:37:11 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:37:13 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:38:16 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:39:31 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:39:31 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:40:50 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[INFO] 2023-02-07 15:40:51 --- Attempted to intercept response but content type was not valid. Treblle only works on JSON API's.
+[ERROR] 2023-02-07 15:44:14 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:44:26 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:47:09 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:48:35 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:53:07 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:54:29 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:55:02 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:56:33 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 15:59:57 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 16:01:59 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 16:03:22 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 16:04:38 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 16:07:14 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 16:08:14 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 16:10:12 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 16:11:13 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 16:11:16 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 16:11:34 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 16:13:33 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 16:21:13 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.
+[ERROR] 2023-02-07 16:22:40 --- An error occured while attempting to read request body. --- Exception message: Specified method is not supported.

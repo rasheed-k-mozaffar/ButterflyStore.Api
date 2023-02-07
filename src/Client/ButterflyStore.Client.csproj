@@ -37,9 +37,5 @@
     <None Remove="Microsoft.Extensions.Http" />
     <None Remove="FluentValidation" />
     <None Remove="Blazored.FluentValidation" />
-    <None Remove="Exceptions\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Exceptions\" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-namespace ButterflyStore.Shared.Responses;
+namespace ButterflyStore.Shared.ApiResponses;
 
 public class ApiErrorResponse
 {
