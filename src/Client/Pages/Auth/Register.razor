@@ -50,7 +50,7 @@
                     <input type="password" class="form-control" @bind-value="@model.Password" />
                 </div>
 
-                <div class="form-group mb-3">
+                <div class="form-group">
                     <label>Password Confirmation</label>
                     <input type="password" class="form-control" @bind-value="@model.PasswordConfirmation" />
                 </div>
@@ -58,7 +58,7 @@
 
 
             <!--Buttons and Navigations for login and registeration.-->
-            <div class="card-body p-5">
+            <div class="card-body p-5 pt-1">
                 <div class="row mb-3">
                     <button class="btn btn-dark" type="submit" disabled="@_isBusy">Create Account</button>
                 </div>

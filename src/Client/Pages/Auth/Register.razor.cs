@@ -41,13 +41,9 @@ namespace ButterflyStore.Client.Pages.Auth
             catch(ApiAuthException ex)
 			{
 				_errorMessage = ex.ErrorResponse.Message;
-
-				Console.WriteLine(_errorMessage);
 			}
-
+			//Re enable the buttons here
 			_isBusy = false;
-
-
 		}
 		
 	}
