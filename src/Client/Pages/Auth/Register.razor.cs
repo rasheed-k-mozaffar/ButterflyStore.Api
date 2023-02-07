@@ -1,4 +1,5 @@
 ﻿using System;
+using ButterflyStore.Client.Exceptions;
 using Microsoft.AspNetCore.Components;
 
 
@@ -32,16 +33,21 @@ namespace ButterflyStore.Client.Pages.Auth
 
 			try
 			{
-                await AuthService.RegisterUserAsync(model);
+				await AuthService.RegisterUserAsync(model);
 
 				NavigationManager.NavigateTo("/auth/login");
             }
 
-            catch(Exception ex)
+            catch(ApiAuthException ex)
 			{
-				_errorMessage = "Something went wrong !";
-				Console.WriteLine(ex.Message);
+				_errorMessage = ex.ErrorResponse.Message;
+
+				Console.WriteLine(_errorMessage);
 			}
+
+			_isBusy = false;
+
+
 		}
 		
 	}

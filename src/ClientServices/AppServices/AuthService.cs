@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http.Json;
 using Blazored.LocalStorage;
+using ButterflyStore.Client.Exceptions;
 using ButterflyStore.Client.Services.Contracts;
 using ButterflyStore.Shared;
 using ButterflyStore.Shared.ApiResponses;
@@ -24,6 +25,7 @@ namespace ButterflyStore.Client.Services.AppServices
             if (!response.IsSuccessStatusCode)
             {
                 var errorMessage = await response.Content.ReadFromJsonAsync<ApiAuthResponse>();
+                throw new ApiAuthException(errorMessage!, "Something went wrong");
             }
 
         }
