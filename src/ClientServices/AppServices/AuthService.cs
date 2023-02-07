@@ -25,14 +25,14 @@ namespace ButterflyStore.Client.Services.AppServices
             if (!response.IsSuccessStatusCode)
             {
                 var errorMessage = await response.Content.ReadFromJsonAsync<ApiAuthResponse>();
-                throw new ApiAuthException(errorMessage!, "Something went wrong");
+                throw new ApiAuthException(errorMessage!, null);
             }
 
         }
 
         public async Task<string> LoginUserAsync(LoginUserDto model)
         {
-            //Make a POST request for the login endpoinnt with the model as JSON.
+            //Make a POST request for the login endpoint with the model as JSON.
             var response = await _httpClient.PostAsJsonAsync("/api/v1/auth/login", model);
 
             if(!response.IsSuccessStatusCode)
@@ -40,14 +40,14 @@ namespace ButterflyStore.Client.Services.AppServices
                 //In case of failure , return the error message from the Api Auth Response.
                 var errorMessage = await response.Content.ReadFromJsonAsync<ApiAuthResponse>();
 
-                return errorMessage!.Message!;
+                throw new ApiAuthException(errorMessage!, null);
             }
             else
             {
                 //In case of success , return the JWT TOKEN.
                 var result = await response.Content.ReadFromJsonAsync<ApiAuthResponse>();
-                return result!.Message!;
 
+                return result!.Message!;
             }
         }
 

@@ -1,0 +1,15 @@
+﻿@page "/"
+@inject NavigationManager NavigationManager
+
+<div class="container text-center">
+    <h1>Hello There</h1>
+
+    <button class="btn btn-outline-dark" @onclick='(() => NavigationManager.NavigateTo("/auth/login"))'>Login</button>
+    <button class="btn btn-outline-dark" @onclick='(() => NavigationManager.NavigateTo("/auth/register"))'>Sign up</button>
+</div>
+
+
+@code {
+
+}
+

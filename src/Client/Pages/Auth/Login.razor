@@ -1,0 +1,60 @@
+﻿@page "/auth/login"
+
+<div>
+    @if (!string.IsNullOrEmpty(_errorMessage))
+    {
+        <div class="alert alert-danger text-center" role="alert">
+            <h3 class="text-dark">@_errorMessage</h3>
+        </div>
+    }
+</div>
+
+<!--This is the registeration form.-->
+<div class="container mt-5">
+    <div class="card">
+
+        <!--Form header text and validations area-->
+
+        <div class="card-body p-5">
+            <h1 class="text-center">Login To Your Account</h1>
+        </div>
+
+        <!--Form fields and labels-->
+        <EditForm Model="@model" OnValidSubmit="@LoginUser">
+
+
+            <div class="card-body p-5">
+                <div>
+                    <FluentValidationValidator />
+                    <ValidationSummary />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label>Email Address</label>
+                    <input type="email" class="form-control" @bind-value="@model.Email" />
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" @bind-value="@model.Password" />
+                </div>
+
+            </div>
+
+
+            <!--Buttons and Navigations for login and registeration.-->
+            <div class="card-body p-5 pt-1">
+                <div class="row mb-3">
+                    <button class="btn btn-dark" type="submit" disabled="@_isBusy">Login</button>
+                </div>
+
+                <div class="row mb-3">
+                    <button class="btn btn-outline-dark" @onclick='(() => NavigationManager.NavigateTo("/auth/register"))'>Sign Up</button>
+                </div>
+
+                <p class="form-text text-center">If you don't have an account , click on sign up to create one.</p>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
