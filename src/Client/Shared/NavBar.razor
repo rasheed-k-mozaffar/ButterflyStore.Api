@@ -1,0 +1,32 @@
+﻿<nav class="navlist">
+    <div class="link-group">
+        <AuthorizeView>
+            <Authorized>
+                <a class="nav-link-custom" href="#">Products</a>
+                <a class="nav-link-custom" href="#">Account</a>
+            </Authorized>
+
+            <NotAuthorized>
+                <a class="nav-link-custom" href="/auth/register">Register</a>
+            </NotAuthorized>
+        </AuthorizeView>
+    </div>
+
+    <div>
+        <h2 class="logo"><a href="/">BUTTERFLY</a></h2>
+    </div>
+
+    <div class="link-group">
+        <AuthorizeView>
+            <Authorized>
+                <a class="nav-link-custom" href="#">Cart</a>
+                <a class="nav-link-custom" href="#">Sign out</a>
+            </Authorized>
+
+            <NotAuthorized>
+                <a class="nav-link-custom" href="/auth/login">Sign in</a>
+            </NotAuthorized>
+        </AuthorizeView>
+
+    </div>
+</nav>
