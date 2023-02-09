@@ -1,0 +1,18 @@
+﻿@inject NavigationManager NavigationManager
+
+<div class="card" style="width: 18rem;">
+    <img src="@Product.ImageUrl" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h3 class="card-title">@Product.Name</h3>
+        <p class="card-text">@Product.Description</p>
+        <hr />
+        <h5>@Product.Price$</h5>
+        <button class="btn btn-outline-dark" @onclick='( (Product) => NavigationManager.NavigateTo("/product/{id}") )'>View</button>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public ProductDto Product { get; set; } = null!;
+}
+
