@@ -19,6 +19,10 @@ namespace ButterflyStore.Server.Controllers
 			_roleManager = roleManager;
 		}
 
+
+		//ROLE RELATED ENDPOINTS.
+
+
 		/// <summary>
 		/// This endpoint returns all the roles.
 		/// </summary>
@@ -69,6 +73,40 @@ namespace ButterflyStore.Server.Controllers
 
             }
 		}
+
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> DeleteRole(string id)
+		{
+			//Check if the ID is null or empty
+			if(string.IsNullOrEmpty(id))
+			{
+				return BadRequest("The ID is invalid"); //Return 400 BAD REQUEST STATUS CODE.
+            }
+
+			//Retrieve the role from the database using the given ID
+			var roleToRemove = await _roleManager.Roles.FirstOrDefaultAsync(r => r.Id == id);
+
+			//Check if a role with that ID exists or not
+			if(roleToRemove != null)
+			{
+				//In case a role exists , then remove it
+				_context.Roles.Remove(roleToRemove);
+
+				await _context.SaveChangesAsync();
+
+				return NoContent(); //Return 204 NO CONTENT STATUS CODE.
+			}
+			else
+			{
+				//In case no role was find that corresponds to that ID , then return an error message.
+				return BadRequest("No role was found with the given ID"); //Return 400 BAD REQUEST STATUS CODE.
+            }
+
+		}
+
+
+		//USER RELATED ENDPOINTS.
+
 
 		/// <summary>
 		/// This method returns all the registered users inside our database.
