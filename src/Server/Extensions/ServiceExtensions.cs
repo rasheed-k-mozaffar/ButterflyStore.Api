@@ -78,12 +78,14 @@ public static class ServiceExtensions
             o.TokenValidationParameters = new TokenValidationParameters
             {
                 //Configuring the JWT Token parameters and creating the Signing Key.
-                ValidateIssuer = true,
-                ValidateAudience = true,
+                ValidIssuer = configuration["JwtSettings:Issuer"],
+                ValidAudience = configuration["JwtSettings:Audience"],
+                ValidateIssuer = false, //Todo : change to true
+                ValidateAudience = false, //Todo : change to true
                 ValidateIssuerSigningKey = true,
                 ValidateLifetime = true,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret!)),
-                RequireExpirationTime = true
+                RequireExpirationTime = true,
             };
         });
     }

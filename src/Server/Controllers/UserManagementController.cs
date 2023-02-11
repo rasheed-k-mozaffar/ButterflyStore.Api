@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Net.NetworkInformation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ButterflyStore.Server.Controllers
 {
+	[Authorize(Roles = "AppUser")]
 	public class UserManagementController : BaseController
 	{
 		//Creating private fields to use after assiging them the values received through the constructor.

@@ -10,12 +10,18 @@ namespace ButterflyStore.Server.Services.Implementations
     public class AuthService : IAuthService
     {
         private readonly UserManager<AppUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
 
-        public AuthService(UserManager<AppUser> userManager, IConfiguration configuration, AppDbContext context)
+        public AuthService (
+            UserManager<AppUser> userManager,
+            RoleManager<IdentityRole> roleManager,
+            IConfiguration configuration,
+            AppDbContext context)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
             _configuration = configuration;
             _context = context;
         }
@@ -41,7 +47,7 @@ namespace ButterflyStore.Server.Services.Implementations
                 Email = model.Email,
                 UserName = model.Email,
                 FirstName = model.FirstName,
-                LastName = model.LastName,
+                LastName = model.LastName
             };
 
             //Creating a new cart with the ID of the user.
@@ -53,6 +59,9 @@ namespace ButterflyStore.Server.Services.Implementations
 
             if (result.Succeeded)
             {
+                //Adding the newely registered user to the "App User Role".
+                await _userManager.AddToRoleAsync(user, "AppUser");
+
                 //In case everything went well.
                 return new ApiAuthResponse
                 {
@@ -101,7 +110,7 @@ namespace ButterflyStore.Server.Services.Implementations
 
                 if(result)
                 {
-                    var token = GenerateJwtToken(existingUser);
+                    var token = await GenerateJwtToken(existingUser);
                     return new ApiAuthResponse
                     {
                         Message = token,
@@ -120,29 +129,23 @@ namespace ButterflyStore.Server.Services.Implementations
             }
         }
 
-
         /// <summary>
         /// This method takes a user , and generates a JWT token with a set of claims and returns it as a string.
         /// </summary>
         /// <param name="user"></param>
         /// <returns>a JWT token as a string.</returns>
-        public string GenerateJwtToken(AppUser user)
+        private async Task<string> GenerateJwtToken(AppUser user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var secret = Encoding.UTF8.GetBytes(_configuration["JwtSettings:Secret"]!);
+
+            var claims = await GetAllClaims(user);
             
             //This part describes the structure of the JWT token.
             var tokenDescriptor = new SecurityTokenDescriptor()
             {
-                Subject = new ClaimsIdentity(new[]
-                {
-                    new Claim("Id" , user.Id),
-                    new Claim(JwtRegisteredClaimNames.Sub , user.Email!),
-                    new Claim(JwtRegisteredClaimNames.Email , user.Email!),
-                    new Claim(JwtRegisteredClaimNames.GivenName , user.FirstName!),
-                    new Claim(JwtRegisteredClaimNames.FamilyName , user.LastName!),                    
-                    new Claim(JwtRegisteredClaimNames.Jti , Guid.NewGuid().ToString()),
-                }),
+                Subject = new ClaimsIdentity(claims),
+                
 
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(secret), SecurityAlgorithms.HmacSha256Signature)
             };
@@ -152,6 +155,55 @@ namespace ButterflyStore.Server.Services.Implementations
             var tokenAsString = tokenHandler.WriteToken(token);
 
             return tokenAsString;
+        }
+
+
+        private async Task<List<Claim>> GetAllClaims(AppUser user)
+        {
+            //Create a list of claims for the user.
+            var claims = new List<Claim>
+            {
+                new Claim("Id" , user.Id),
+                new Claim(JwtRegisteredClaimNames.Sub , user.Email!),
+                new Claim(JwtRegisteredClaimNames.Email , user.Email!),
+                new Claim(JwtRegisteredClaimNames.GivenName , user.FirstName!),
+                new Claim(JwtRegisteredClaimNames.FamilyName , user.LastName!),
+                new Claim(JwtRegisteredClaimNames.Jti , Guid.NewGuid().ToString())
+            };
+
+            //Get all the claims that have been assigned to the user.
+            var userClaims = await _userManager.GetClaimsAsync(user);
+
+            //Add those claims to our claims list.
+            claims.AddRange(userClaims);
+
+            //Get the user roles.
+            //By default , every new user will have the AppUser role.
+            var userRoles = await _userManager.GetRolesAsync(user);
+
+            foreach(var userRole in userRoles)
+            {
+                //retrieving the role
+                var role = await _roleManager.FindByNameAsync(userRole);
+
+                //Check if the role exists or not.
+                if(role != null)
+                {
+                    //Adding the role to the list of claims
+                    claims.Add(new Claim(ClaimTypes.Role, userRole));
+
+                    //Getting the role claims , which are claims that can provided for a certain role.
+                    var roleClaims = await _roleManager.GetClaimsAsync(role);
+
+                    foreach(var roleClaim in roleClaims)
+                    {
+                        //Lastly , if there are any role claims , add them to the list of claims here.
+                        claims.Add(roleClaim);
+                    }
+                }
+            }
+
+            return claims;
         }
 
     }

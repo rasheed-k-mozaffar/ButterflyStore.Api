@@ -2,10 +2,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Treblle.Net.Core;
 using ButterflyStore.Server.Extensions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace ButterflyStore.Server.Controllers;
 
-[Treblle]
+
 public class ProductsController : BaseController
 {
     private readonly IProductsService _productsService;

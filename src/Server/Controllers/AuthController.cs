@@ -36,7 +36,6 @@ namespace ButterflyStore.Server.Controllers
 
 				return BadRequest(result);
 			}
-
 			else
 			{
 				validationResult.AddToModelState(ModelState);
@@ -66,9 +65,9 @@ namespace ButterflyStore.Server.Controllers
 
 			return BadRequest(ModelState); //Return 400 BAD REQUEST STATUS CODE WITH MODEL VALIDATIONS.
         }
+    }
 
-		
-	}
+	
 
 	public static class Extensions
 	{
