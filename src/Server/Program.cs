@@ -51,7 +51,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseTreblle();
+
 app.UseCors(options =>
 {
     options.AllowAnyHeader();
@@ -60,6 +60,7 @@ app.UseCors(options =>
 });
 app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.MapControllers();
 
