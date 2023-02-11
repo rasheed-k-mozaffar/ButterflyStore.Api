@@ -1,15 +1,41 @@
 ﻿@page "/"
 @inject NavigationManager NavigationManager
 
-<div class="container text-center">
-    <h1>Hello There</h1>
 
-    <button class="btn btn-outline-dark" @onclick='(() => NavigationManager.NavigateTo("/auth/login"))'>Login</button>
-    <button class="btn btn-outline-dark" @onclick='(() => NavigationManager.NavigateTo("/auth/register"))'>Sign up</button>
-</div>
+<body>
+    <div class="hero-section text-center">
+        <h3 class="hero-header">Welcome to Butterfly Store</h3>
+        <p class="hero-text">
+            Here you can shop for handmade high-quality  clothing that suits your taste <br>
+            All pieces are made upon request and no items available for direct shipping.
+        </p>
+
+        <button class="hero-button" @onclick='( () => NavigationManager.NavigateTo("Products"))'>Browse Our Catalog</button>
+    </div>
+
+
+    <h1 class="body-header text-center">Browse a list items from our best collection</h1>
+    <div class="products-container">
+
+        <div class="mt-5 products-container products">
+            <ProductCard Product="@product" />
+            <ProductCard Product="@product" />
+            <ProductCard Product="@product" />
+            <ProductCard Product="@product" />
+        </div>
+    </div>
+</body>
+
 
 
 @code {
-
+    ProductDto product = new()
+    {
+        Name = "iPhone 14 Pro",
+        Description = "Meet the iPhone 14 Pro , the latest and greatest iPhone with a whole set of new features , and more power than ever",
+        ImageUrl = "https://th.bing.com/th/id/R.2b2ac1bb5b369a4aea0e5dc1768f10b4?rik=uXHEZ0EPPT7U7w&pid=ImgRaw&r=0",
+        Price = 999.9M,
+    };
 }
+
 

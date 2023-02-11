@@ -1,0 +1,51 @@
+﻿.hero-section {
+    color: white;
+    padding: 0 5%;
+    height: 100vh;
+    background-color: black;
+}
+
+    .hero-section .hero-header {
+        font-size: 4rem;
+        font-weight: bolder;
+    }
+
+    .hero-section .hero-text {
+        margin-top: 2rem;
+        line-height: 40px;
+        font-size: 1.25rem;
+        font-weight: 300;
+    }
+
+    .hero-section .hero-button {
+        color: white;
+        margin-top: 1rem;
+        font-weight: 300;
+        padding: .5rem 2rem;
+        border: .5px solid white;
+        transition: .25s ease;
+        background-color: transparent;
+    }
+
+        .hero-section .hero-button:hover {
+            background-color: white;
+            color: black
+        }
+
+
+.body-header {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-top: 5rem;
+}
+
+.products-container {
+    margin-top: 5rem;
+    display: flex;
+}
+
+    .products-container .products {
+        display: flex;
+        flex-direction: row;
+        flex-basis: 25%;
+    }
