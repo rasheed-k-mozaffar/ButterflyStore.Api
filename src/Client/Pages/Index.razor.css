@@ -1,51 +1,96 @@
-﻿.hero-section {
-    color: white;
-    padding: 0 5%;
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-section {
     height: 100vh;
-    background-color: black;
-}
-
-    .hero-section .hero-header {
-        font-size: 4rem;
-        font-weight: bolder;
-    }
-
-    .hero-section .hero-text {
-        margin-top: 2rem;
-        line-height: 40px;
-        font-size: 1.25rem;
-        font-weight: 300;
-    }
-
-    .hero-section .hero-button {
-        color: white;
-        margin-top: 1rem;
-        font-weight: 300;
-        padding: .5rem 2rem;
-        border: .5px solid white;
-        transition: .25s ease;
-        background-color: transparent;
-    }
-
-        .hero-section .hero-button:hover {
-            background-color: white;
-            color: black
-        }
-
-
-.body-header {
-    font-size: 3rem;
-    font-weight: 900;
-    margin-top: 5rem;
-}
-
-.products-container {
-    margin-top: 5rem;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(images/hero-section-image.jpg);
+    background-size: cover;
+    background-position: center;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    margin-bottom: 7.5rem;
 }
 
-    .products-container .products {
-        display: flex;
-        flex-direction: row;
-        flex-basis: 25%;
+    .hero-section h1 {
+        font-size: 4rem;
+        font-weight: 800;
+    }
+
+    .hero-section p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        font-weight: 200;
+    }
+
+.hero-button {
+    padding: .75rem 1rem;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    transition: .25s ease;
+    cursor: pointer;
+}
+
+    .hero-button:hover {
+        background-color: white;
+        color: black;
+    }
+
+.main-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 5%;
+}
+
+.card {
+    border-radius: 0;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+    margin: 1rem;
+}
+
+
+.section-patch {
+    margin-top: 10rem;
+    padding: 5% 10%;
+}
+
+    .section-patch h1 {
+        font-size: 3rem;
+        font-weight: 700;
+    }
+
+.first-section {
+    background-color: darkslategray;
+    color: white;
+}
+
+.second-section {
+    background-color: black;
+    color: white;
+}
+
+
+.contact-us-section {
+    margin-top: 10%;
+    padding: 0 20%;
+}
+
+    .contact-us-section h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 5%;
     }

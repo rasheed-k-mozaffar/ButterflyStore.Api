@@ -2,30 +2,71 @@
 @inject NavigationManager NavigationManager
 
 
-<body>
-    <div class="hero-section text-center">
-        <h3 class="hero-header">Welcome to Butterfly Store</h3>
-        <p class="hero-text">
-            Here you can shop for handmade high-quality  clothing that suits your taste <br>
-            All pieces are made upon request and no items available for direct shipping.
-        </p>
+<div class="hero-section text-center">
+    <h1>Welcome To Butterfly Store</h1>
+    <p>Shop for handmade high-quality clothing and accessories that suits your taste.</p>
 
-        <button class="hero-button" @onclick='( () => NavigationManager.NavigateTo("Products"))'>Browse Our Catalog</button>
-    </div>
+    <button class="hero-button">Browse Our Catalog</button>
+</div>
+
+<div class="main-header text-center">
+    <h1>Browse Our Collection</h1>
+</div>
+
+<main>
+    @for(int i =0; i < 7;i++)
+{
+            <ProductCard Product="product" />
+}
+
+</main>
+
+<div class="mt-5 text-center">
+    <CustomButton Text="Browse Our Collection" />
+</div>
+
+<section class="section-patch first-section text-center">
+    <h1>World-Wide Shipping</h1>
+    <p>
+        We provide worldwide shipping for all orders, so no matter where you are, you can get high-quality purely
+        handmade
+        clothing at a great price. <br>
+        if you have any questions about an item or about our shipping policy, don't hesitate to reach out and we'll
+        be happy to answer your questions. <br>
+        Shop with us today and enjoy the convenience of free worldwide shipping from Butterfly handmade Clothing
+        Store.
+    </p>
+</section>
+
+<section class="section-patch second-section text-center">
+    <h1>Shop For Custom Orders</h1>
+    <p>
+        If you happen to want something that's not available in our collection , you can contact us and provide the
+        details for the piece you wish <br>
+        we'll surely craft you the item you wish based off your personal preference and choices.
+    </p>
+</section>
 
 
-    <h1 class="body-header text-center">Browse a list items from our best collection</h1>
-    <div class="products-container">
+<section class="contact-us-section">
+    <h1 class="text-center">Contact Us Here</h1>
 
-        <div class="mt-5 products-container products">
-            <ProductCard Product="@product" />
-            <ProductCard Product="@product" />
-            <ProductCard Product="@product" />
-            <ProductCard Product="@product" />
+    <form>
+        <div class="form-group mb-5">
+            <label class="mb-2">Email Address</label>
+            <input class="form-control" placeholder="Enter your email." />
         </div>
-    </div>
-</body>
 
+        <div class="form-group mb-5">
+            <label class="mb-2">Message</label>
+            <input class="form-control" placeholder="Enter your message here." />
+        </div>
+
+        <div class="form-group mb-5 text-center">
+            <CustomButton Text="Submit Your Request" Type="submit" />
+        </div>
+    </form>
+</section>
 
 
 @code {
