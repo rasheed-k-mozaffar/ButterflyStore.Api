@@ -1,32 +1,25 @@
-﻿<nav class="navlist">
-    <div class="link-group">
-        <AuthorizeView>
-            <Authorized>
-                <a class="nav-link-custom" href="#">Products</a>
-                <a class="nav-link-custom" href="#">Account</a>
-            </Authorized>
-
-            <NotAuthorized>
-                <a class="nav-link-custom" href="/auth/register">Register</a>
-            </NotAuthorized>
-        </AuthorizeView>
-    </div>
-
+﻿<nav class="nav-container">
     <div>
-        <h2 class="logo"><a href="/">BUTTERFLY</a></h2>
+
+        <!-- logo goes here-->
+        <h1 class="logo"><a href="#">Navio</a></h1>
     </div>
 
-    <div class="link-group">
+    <div class="nav-list">
+        <a href="#" class="">Products</a>
         <AuthorizeView>
+
             <Authorized>
-                <a class="nav-link-custom" href="#">Cart</a>
-                <a class="nav-link-custom" href="#">Sign out</a>
+                <a href="#" class="">Cart</a>
+                <a href="#" class="">Account</a>
+                <a href="#" class="">Sign out</a>
             </Authorized>
 
             <NotAuthorized>
-                <a class="nav-link-custom" href="/auth/login">Sign in</a>
+                <a href="#" class="">Login</a>
+                <a href="#" class="">Register</a>
             </NotAuthorized>
-        </AuthorizeView>
 
+        </AuthorizeView>
     </div>
 </nav>

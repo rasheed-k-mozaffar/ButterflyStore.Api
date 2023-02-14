@@ -1,0 +1,14 @@
+﻿.custom-button {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+    padding: .75rem 2rem;
+    border: 1px solid black;
+    transition: .25s ease;
+}
+
+    .custom-button:hover {
+        color: white;
+        background-color: black;
+        padding: .75rem 5rem;
+    }
